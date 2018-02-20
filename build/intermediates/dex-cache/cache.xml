@@ -3,21 +3,21 @@
 
     <item
         is-multidex="true"
-        jar="C:\Users\SHUBHAM\AndroidStudioProjects\WomenNew-master\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jar="C:\Users\dell\Desktop\women empowerment\android-node\women\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.1"
+        sha1="8a0b983b65a0d0904af27bb05b2ee0a9deb78e12">
+        <dex dex="C:\Users\dell\Desktop\women empowerment\android-node\women\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_6a073985e804ca7eadb063d7985343f441bb41a3\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\dell\Desktop\women empowerment\android-node\women\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="26.0.1"
         sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
-        <dex dex="C:\Users\SHUBHAM\AndroidStudioProjects\WomenNew-master\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_16c02fe4df4607abbcd9d3ae2abaf323c68af368\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\SHUBHAM\AndroidStudioProjects\WomenNew-master\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.1"
-        sha1="904fefa5a42565477766d99d7b258746951d4669">
-        <dex dex="C:\Users\SHUBHAM\AndroidStudioProjects\WomenNew-master\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_0c19385ec991ff0f5784e5ff159c5224af4d1883\classes.dex" />
+        <dex dex="C:\Users\dell\Desktop\women empowerment\android-node\women\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_95c290746c34da85ed00a7e174fe2b6f25b560d9\classes.dex" />
     </item>
 
 </items>
