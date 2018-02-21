@@ -44,7 +44,7 @@ public class Login extends AppCompatActivity {
                 params.add(new BasicNameValuePair("email", email));
                 params.add(new BasicNameValuePair("password", password));
                 ServerRequest sr = new ServerRequest();
-                JSONObject json = sr.getJSON("http://192.168.1.16:8080/authenticate",params);
+                JSONObject json = sr.getJSON("http://192.168.0.112:8080/authenticate",params);
                 if(json != null){
                     try{
                         String jsonstr = json.getString("password");
