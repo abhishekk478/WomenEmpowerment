@@ -18,9 +18,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SignUp extends AppCompatActivity {
-      EditText Name,Email,Password,Address,Phone,Qualification,Skills,Experience;
+     EditText Name,Email,Password,Address,State,Pin,Phone,Qualification,Skills,Experience;
      Button mSignupBtn;
-     String email,name,password,address,qualification,skills,experience,phone;
+     String email,name,password,address,state,pin,qualification,skills,experience,phone;
      List<NameValuePair> params;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +30,8 @@ public class SignUp extends AppCompatActivity {
         Email =(EditText)findViewById(R.id.Email);
         Password=(EditText)findViewById(R.id.Password);
         Address=(EditText)findViewById(R.id.Address);
+        State=(EditText)findViewById(R.id.State);
+        Pin=(EditText)findViewById(R.id.Pin);
         Phone=(EditText)findViewById(R.id.Mobile);
         Qualification=(EditText)findViewById(R.id.Qualification);
         Skills=(EditText)findViewById(R.id.Skills);
@@ -42,6 +44,8 @@ public class SignUp extends AppCompatActivity {
                 email = Email.getText().toString();
                 password = Password.getText().toString();
                 address = Address.getText().toString();
+                state = State.getText().toString();
+                pin = Pin.getText().toString();
                 phone = Phone.getText().toString();
                 qualification = Qualification.getText().toString();
                 skills = Skills.getText().toString();
@@ -53,6 +57,8 @@ public class SignUp extends AppCompatActivity {
                 params.add(new BasicNameValuePair("email", email));
                 params.add(new BasicNameValuePair("password", password));
                 params.add(new BasicNameValuePair("address",address));
+                params.add(new BasicNameValuePair("state",state));
+                params.add(new BasicNameValuePair("pin",pin));
                 params.add(new BasicNameValuePair("mobile",phone));
                 params.add(new BasicNameValuePair("Qualification",qualification));
                 params.add(new BasicNameValuePair("skills",skills));
