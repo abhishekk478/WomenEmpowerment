@@ -1,13 +1,11 @@
 package com.example.vsing.splash_screen;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
@@ -18,10 +16,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SignUp extends AppCompatActivity {
-     EditText Name,Email,Password,Address,State,Pin,Phone,Qualification,Skills,Experience;
-     Button mSignupBtn;
-     String email,name,password,address,state,pin,qualification,skills,experience,phone;
-     List<NameValuePair> params;
+    JSONParser jsonParser = new JSONParser();
+    private static String url_registration = "http://193.168.0.113/WomwnEmpowerment/registration.php";
+    private static final String TAG_SUCCESS = "success";
+
+    EditText Name,Email,Password,Address,State,Pin,Std,Phone,Qualification,Skills,Experience;
+    Button mSignupBtn;
+    String email,name,pass,address,state,pin,std,qualification,skills,experience,phone;
+    List<NameValuePair> params;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +34,7 @@ public class SignUp extends AppCompatActivity {
         Address=(EditText)findViewById(R.id.Address);
         State=(EditText)findViewById(R.id.State);
         Pin=(EditText)findViewById(R.id.Pin);
+        Std=(EditText)findViewById(R.id.Std);
         Phone=(EditText)findViewById(R.id.Mobile);
         Qualification=(EditText)findViewById(R.id.Qualification);
         Skills=(EditText)findViewById(R.id.Skills);
@@ -42,42 +45,45 @@ public class SignUp extends AppCompatActivity {
             public void onClick(View v) {
                 name = Name.getText().toString();
                 email = Email.getText().toString();
-                password = Password.getText().toString();
+                pass = Password.getText().toString();
                 address = Address.getText().toString();
                 state = State.getText().toString();
                 pin = Pin.getText().toString();
+                std = Std.getText().toString();
                 phone = Phone.getText().toString();
                 qualification = Qualification.getText().toString();
                 skills = Skills.getText().toString();
                 experience = Experience.getText().toString();
 
 
-                 params = new ArrayList<NameValuePair>();
+                params = new ArrayList<NameValuePair>();
                 params.add(new BasicNameValuePair("name", name));
                 params.add(new BasicNameValuePair("email", email));
-                params.add(new BasicNameValuePair("password", password));
+                params.add(new BasicNameValuePair("pass", pass));
                 params.add(new BasicNameValuePair("address",address));
                 params.add(new BasicNameValuePair("state",state));
                 params.add(new BasicNameValuePair("pin",pin));
+                params.add(new BasicNameValuePair("std",std));
                 params.add(new BasicNameValuePair("mobile",phone));
-                params.add(new BasicNameValuePair("Qualification",qualification));
+                params.add(new BasicNameValuePair("qualification",qualification));
                 params.add(new BasicNameValuePair("skills",skills));
                 params.add(new BasicNameValuePair("experience",experience));
 
-                ServerRequest sr = new ServerRequest();
-                JSONObject json = sr.getJSON("http://192.168.1.16:8080/Register",params);
-                if(json != null){
-                    try{
-                       String jsonstr = json.getString("password");
+                JSONObject json = jsonParser.makeHttpRequest(url_registration,"POST", params);
+                Log.d("Create Response", json.toString());
+                try {
+                    int success = json.getInt(TAG_SUCCESS);
 
-                        Toast.makeText(getApplication(),jsonstr, Toast.LENGTH_LONG).show();
+                    if (success == 1) {
+                        // successfully created product
 
-                        Log.d("Hello", jsonstr);
-                        Intent intent = new Intent(SignUp.this, after_login.class);
-                        startActivity(intent);
-                    }catch (JSONException e) {
-                        e.printStackTrace();
+                        // closing this screen
+                        finish();
+                    } else {
+                        // failed to create product
                     }
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
 
             }
