@@ -101,6 +101,7 @@ public class SignUp extends AppCompatActivity {
                     finish();
                 } else {
                     // failed to create product
+                    finish();
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
